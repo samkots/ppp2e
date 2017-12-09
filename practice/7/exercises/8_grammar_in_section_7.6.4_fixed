@@ -1,0 +1,91 @@
+
+Grammar in section 7.6.4 pg 238:
+
+Statement:
+	Espression
+	Print
+	Quit
+
+Print:
+	;
+
+Quit:
+	q
+
+Expression:
+	Term
+	Expression + Term
+	Expression - Term
+
+Term:
+	Primary
+	Term * Primary
+	Term / Primary
+	Term % Primary
+
+Primary:
+	Number
+	( Expression )
+	- Primary
+	+ Primary
+
+Number:
+	floating-point-literal
+
+
+//------------------------------------------------------------------------------
+
+Grammar fixed upto exercise 7:
+A try:
+
+Calculation:
+	Print
+	Quit
+	Help
+	Statement Print
+	Calculation Calculation
+
+Statement:
+	Declaration
+	Expression
+
+Declaration:
+	let Name = Expression
+	const Name = Expression
+
+Expression:
+	Term
+	Expression + Term
+	Expression - Term
+
+Term:
+	Primary
+	Term * Primary
+	Term / Primary
+	Term % Primary
+
+Primary:
+	Number
+	Name
+	Name = Expression
+	( Expression )
+	- Primary
+	+ Primary
+
+Name:
+	identifier starting with an alphabate or '-' and containing
+	any of the alphabates, numbers or '-'
+
+Number:
+	floating-point-literal
+
+Print:
+	a newline character
+
+Help:
+	help
+
+Quit:
+	quit
+
+

@@ -1,0 +1,10 @@
+
+Polygon is inefficient to create...
+pg 460:
+	"The trouble is that Polygon's invariant "the points represent a
+polygon" can't be verified until all points have been defined; that is,
+we are not - as strongly recommended - establishing Polygn's invariant
+in its constructor."
+
+
+

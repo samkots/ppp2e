@@ -1,0 +1,27 @@
+
+//
+// Grammar for bitwise logical operations
+//
+
+
+Espression:
+	Term
+	Expression '|' Term
+
+Term:
+	Xterm
+	Term '^' Xterm
+
+Xterm:
+	Primary
+	Xterm '&' Primary
+
+Primary:
+	Number
+	'(' Expression ')'
+	'!' Primary
+	'~' Primary
+
+Number:
+	integer-literal
+

@@ -1,0 +1,50 @@
+
+Reference: ppp2e 8.6.2 Global initialization pg 293
+
+Global scope:
+
+1. Global variables in one translation unit are guaranteed to be initialized in order in which they are initialized.
+
+	// file1
+	int x = 1;
+	int y = x + 2;				// y is guaranteed to be 3
+
+2. Order of initialization of global variables in different translation unit in not defined.
+
+	// file2
+	extern int x;
+	int yy = yy + 2;			// yy can be 2 or 5	/!\
+
+
+So, following variable may not be initialized before it's use !!
+
+	const Date default_date(1970, 1, 1);				/!\
+
+To guarantee that, we can do:
+
+	const Date default_date()
+	{
+		return Date(1970, 1, 1);			// Constructed at every function call.
+	}
+
+If the ctor is expensive, do:
+
+	const Date& default_date()
+	{
+		static const Date dd(1970, 1, 1);		// Initialized only the first time the function is called
+		return dd;
+	}
+
+
+Use of global variables should be minimized for 2 reasons:
+
+	1. They can be accessed by any function. While debuging, if it turns out
+		that a global variable has an unexpected value, then its much
+		harder to find out which function assigned the variable to that
+		value. That function can be in a source file that you have never
+		seen!
+
+	2. The order of initialization(with the explicit initializer provided)
+		of global variables in different translation unites is
+		undefined.
+

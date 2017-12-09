@@ -1,0 +1,17 @@
+
+Some examples with undefined order of evaluation. Don't do that.	/!\
+
+v[i] = ++i;
+v[++i] = i;
+int x = ++i + ++i;
+cout << ++i << ' ' << i << '\n';
+f(++i, ++i)
+
+
+
+Reference: ppp2e 8.6.1 Expression evaluation, pg292
+
+"There is a simple rule that can keep you out of trouble: if you change the value
+of a variable in an expression, don't read or write it twice in that same
+expression."
+
