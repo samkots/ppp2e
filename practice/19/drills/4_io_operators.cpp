@@ -48,27 +48,35 @@ template <typename T>
 istream& operator >> (istream& is, vector<T>& v)
 	// format: { val, val, val }
 {
-	char oc;		// opening curly brace
-	is >> oc;
-	if (!is) {
-		is.putback(oc);
+	char opening_curly;
+	if (!(is >> opening_curly))
 		return is;
-	}
 
-	if (oc != '{') {
-		is.putback(oc);
-		is.clear(ios::failbit);
+	if (opening_curly != '{') {
+		is.unget();
+		is.clear(ios_base::failbit);
 		return is;
 	}
 
 	v.clear();
+
+	// empty vector check
+	char closing_curly;
+	if (!(is >> closing_curly))
+		return is;
+
+	if (closing_curly == '}')
+		return is;
+	else
+		is.unget();
+
 	char comma;
 	for (T t{}; is >> t >> comma;) {
 		v.push_back(t);
 		if (comma == '}')
 			break;
 		if (comma != ',') {
-			is.clear(ios::failbit);
+			is.clear(ios_base::failbit);
 			return is;
 		}
 	}
