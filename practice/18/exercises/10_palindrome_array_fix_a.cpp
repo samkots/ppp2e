@@ -2,12 +2,12 @@
 //
 // The palindrome program(array-version) in section 18.7.2 works only on fixed
 // size(128) buffer.
-// This code is fixes it by throwing an error when the input string is too long
+// This code fixes it by throwing an error when the input string is too long
 // to be held by the buffer
 //
 // comment on complexity of fixing code:
 //	simply throwing an error is simple.
-//	Few changes were required in the existing code.
+//	few changes were required in the existing code.
 //
 
 #include "ppp/std_lib_facilities.h"
