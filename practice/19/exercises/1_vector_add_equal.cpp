@@ -6,6 +6,7 @@ using namespace std;
 ///
 
 template <typename T>
+	// requires: ostream& operator << (ostream&, T)
 void print(const vector<T>& v)
 {
 	cout << "{";
@@ -19,6 +20,7 @@ void print(const vector<T>& v)
 ///
 
 template <typename T>
+	// requires: T operator += (T, T)
 void f(vector<T>& a, const vector<T>& b)
 {
 	int size = a.size();
