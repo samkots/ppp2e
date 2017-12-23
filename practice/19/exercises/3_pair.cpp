@@ -32,7 +32,7 @@ void Symbol_table::define_name(const string& name, double val)
 {
 	if (is_declared(name))
 		error("redefined: ", name);
-	tab_.push_back(Pair<string, double>{name, val});
+	tab_.push_back({name, val});
 }
 
 ///
