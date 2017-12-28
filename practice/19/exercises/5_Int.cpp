@@ -8,9 +8,6 @@ public:
 	explicit Int(int n = 0)
 		:n_{n} {}
 
-	Int(const Int& o)
-		:n_{o.n_} {}
-
 	Int& operator = (const Int& o) {
 		n_ = o.n_;
 		return *this;
