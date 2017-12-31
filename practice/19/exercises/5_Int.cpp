@@ -13,10 +13,10 @@ public:
 		return *this;
 	}
 
-	int operator + (Int n) { return n_ + n.n_; }
-	int operator - (Int n) { return n_ - n.n_; }
-	int operator * (Int n) { return n_ * n.n_; }
-	int operator / (Int n) { return n_ / n.n_; }
+	int operator + (Int n) const { return n_ + n.n_; }
+	int operator - (Int n) const { return n_ - n.n_; }
+	int operator * (Int n) const { return n_ * n.n_; }
+	int operator / (Int n) const { return n_ / n.n_; }
 
 	//
 	// friend functions aren't yet introduced in the book. But a beginner

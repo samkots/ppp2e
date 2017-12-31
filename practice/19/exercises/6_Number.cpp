@@ -23,11 +23,11 @@ public:
 		return *this;
 	}
 
-	Number operator + (const Number& n) { return Number{val_ + n.val_}; }
-	Number operator - (const Number& n) { return Number{val_ - n.val_}; }
-	Number operator * (const Number& n) { return Number{val_ * n.val_}; }
-	Number operator / (const Number& n) { return Number{val_ / n.val_}; }
-	Number operator % (const Number& n) { return Number{fmod(val_, n.val_)}; }
+	Number operator + (const Number& n) const { return Number{val_ + n.val_}; }
+	Number operator - (const Number& n) const { return Number{val_ - n.val_}; }
+	Number operator * (const Number& n) const { return Number{val_ * n.val_}; }
+	Number operator / (const Number& n) const { return Number{val_ / n.val_}; }
+	Number operator % (const Number& n) const { return Number{fmod(val_, n.val_)}; }
 
 	//
 	// friend functions aren't yet introduced in the book. But a beginner
